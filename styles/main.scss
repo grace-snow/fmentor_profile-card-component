@@ -1,0 +1,264 @@
+/*----------------------------
+	Vars
+----------------------------*/
+
+$brand-primary: hsl(185, 75%, 39%);
+$brand-secondary: hsl(229, 23%, 23%);
+$brand-tertiary: hsl(227, 10%, 46%);
+$neutral-200: hsl(0, 0%, 59%);
+
+$base-font-size: 18;
+
+$font-primary: 'Kumbh Sans', sans-serif;
+$weight-normal: 400;
+$weight-bold: 700;
+
+$radius: 1rem;
+
+@function percent($size) {
+  $percentSize: $base-font-size / 16 * 100%;
+  @return #{$percentSize};
+}
+
+@function rem($size) {
+  $remSize: $size / #{$base-font-size};
+  @return #{$remSize}rem;
+}
+
+$spacer: 1rem;
+$spacer-small: rem(6);
+$spacer-large: rem(28);
+
+/*----------------------------
+	Base
+----------------------------*/
+html {
+  font-size: percent(18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: 100%;
+  background: $brand-primary;
+}
+
+/*----------------------------
+	Create Background effect
+----------------------------*/
+
+.component-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // background: $brand-primary;
+  position: relative;
+  font-family: $font-primary;
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    background-size: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    background: url('/images/bg-pattern-top.svg') no-repeat bottom right;
+  }
+
+  &:after {
+    top: 100%;
+    left: 100%;
+    background: url('/images/bg-pattern-bottom.svg') no-repeat top left;
+  }
+}
+
+.component-wrapper__main {
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-wrapper__footer {
+  font-size: rem(12);
+  text-align: center;
+  padding: $spacer;
+  align-self: center;
+  text-shadow: 0px 0px rem(6) #fff;
+
+  > * {
+    margin: 0;
+    z-index: 1;
+  }
+}
+
+.attribution-link {
+  color: hsl(228, 45%, 44%);
+}
+
+/*----------------------------
+	Visually hidden helper
+----------------------------*/
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/*----------------------------
+	Profile Card component
+----------------------------*/
+
+.c-profile-card {
+  background: #fff;
+  border-radius: $radius;
+  position: relative;
+  width: 100%;
+  max-width: rem(365);
+}
+
+.c-profile-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacer-large $spacer;
+  padding-top: rem(140);
+  color: $brand-tertiary;
+
+  // patterned bg image
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0%;
+    top: 0;
+    width: 100%;
+    height: rem(140);
+    background: url('/images/bg-pattern-card.svg') no-repeat center;
+    background-size: auto;
+    background-size: cover;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+}
+
+.c-profile-card__avatar {
+  border-radius: 50%;
+  order: 1;
+  margin-top: rem(-50);
+  border: rem(5) solid white;
+  z-index: 1;
+}
+
+.c-profile-card__title {
+  order: 2;
+}
+
+.c-profile-card__name,
+.c-profile-card__age {
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.c-profile-card__name {
+  font-weight: $weight-bold;
+  color: $brand-secondary;
+  margin-top: $spacer;
+}
+
+.c-profile-card__age {
+  margin-top: $spacer-small;
+  font-weight: $weight-normal;
+}
+
+.c-profile-card__location {
+  font-size: rem(14);
+  order: 3;
+  margin-top: rem(12);
+}
+
+.c-profile-card__stats-list {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  flex-wrap: wrap;
+  padding: $spacer-large $spacer;
+
+  // Create an accessible list
+  > * {
+    list-style-type: none;
+    position: relative;
+
+    &::before {
+      content: '\200B';
+      height: 0;
+      display: block;
+    }
+  }
+
+  // add top border
+  &:before {
+    content: '';
+    height: 1px;
+    background: $neutral-200;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+}
+
+.c-profile-card__stats-list-item {
+  color: $brand-tertiary;
+  text-align: center;
+  margin: 0 $spacer-small;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.c-profile-card__stat-number,
+.c-profile-card__stat-label {
+  display: block;
+}
+
+.c-profile-card__stat-number {
+  font-size: 1rem;
+  font-weight: $weight-bold;
+  color: $brand-secondary;
+}
+
+.c-profile-card__stat-label {
+  font-size: rem(12);
+  margin-top: $spacer-small;
+  letter-spacing: 1px;
+}
