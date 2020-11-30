@@ -9,7 +9,7 @@ $neutral-200: hsl(0, 0%, 59%);
 
 $base-font-size: 18;
 
-$font-primary: 'Kumbh Sans', sans-serif;
+$font-primary: "Kumbh Sans", sans-serif;
 $weight-normal: 400;
 $weight-bold: 700;
 
@@ -26,8 +26,9 @@ $radius: 1rem;
 }
 
 $spacer: 1rem;
-$spacer-small: rem(6);
-$spacer-large: rem(28);
+$spacer-tiny: rem(6);
+$spacer-small: rem(12);
+$spacer-large: rem(26);
 
 /*----------------------------
 	Base
@@ -65,7 +66,7 @@ body {
   &:before,
   &:after {
     position: absolute;
-    content: '';
+    content: "";
     width: 100vw;
     height: 100vh;
     background-size: auto;
@@ -76,13 +77,13 @@ body {
   &:before {
     top: 0;
     left: 0;
-    background: url('/images/bg-pattern-top.svg') no-repeat bottom right;
+    background: url("/images/bg-pattern-top.svg") no-repeat bottom right;
   }
 
   &:after {
     top: 100%;
     left: 100%;
-    background: url('/images/bg-pattern-bottom.svg') no-repeat top left;
+    background: url("/images/bg-pattern-bottom.svg") no-repeat top left;
   }
 }
 
@@ -137,7 +138,7 @@ body {
   border-radius: $radius;
   position: relative;
   width: 100%;
-  max-width: rem(365);
+  max-width: rem(360);
 }
 
 .c-profile-card__header {
@@ -151,13 +152,13 @@ body {
 
   // patterned bg image
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0%;
     top: 0;
     width: 100%;
     height: rem(140);
-    background: url('/images/bg-pattern-card.svg') no-repeat center;
+    background: url("/images/bg-pattern-card.svg") no-repeat center;
     background-size: auto;
     background-size: cover;
     border-top-left-radius: $radius;
@@ -175,6 +176,7 @@ body {
 
 .c-profile-card__title {
   order: 2;
+  margin-top: $spacer-large;
 }
 
 .c-profile-card__name,
@@ -186,18 +188,18 @@ body {
 .c-profile-card__name {
   font-weight: $weight-bold;
   color: $brand-secondary;
-  margin-top: $spacer;
 }
 
 .c-profile-card__age {
-  margin-top: $spacer-small;
+  margin-top: $spacer-tiny;
   font-weight: $weight-normal;
 }
 
 .c-profile-card__location {
   font-size: rem(14);
   order: 3;
-  margin-top: rem(12);
+  margin-top: $spacer-small;
+  margin-bottom: $spacer-tiny;
 }
 
 .c-profile-card__stats-list {
@@ -213,7 +215,7 @@ body {
     position: relative;
 
     &::before {
-      content: '\200B';
+      content: "\200B";
       height: 0;
       display: block;
     }
@@ -221,7 +223,7 @@ body {
 
   // add top border
   &:before {
-    content: '';
+    content: "";
     height: 1px;
     background: $neutral-200;
     width: 100%;
@@ -235,7 +237,7 @@ body {
 .c-profile-card__stats-list-item {
   color: $brand-tertiary;
   text-align: center;
-  margin: 0 $spacer-small;
+  margin: $spacer-tiny;
 
   &:first-of-type {
     margin-left: 0;
@@ -259,6 +261,6 @@ body {
 
 .c-profile-card__stat-label {
   font-size: rem(12);
-  margin-top: $spacer-small;
+  margin-top: $spacer-tiny;
   letter-spacing: 1px;
 }

@@ -35,7 +35,7 @@ body {
 
 .component-wrapper:before, .component-wrapper:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 100vw;
   height: 100vh;
   background-size: auto;
@@ -105,7 +105,7 @@ body {
   border-radius: 1rem;
   position: relative;
   width: 100%;
-  max-width: 20.27778rem;
+  max-width: 20rem;
 }
 
 .c-profile-card__header {
@@ -113,13 +113,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.55556rem 1rem;
+  padding: 1.44444rem 1rem;
   padding-top: 7.77778rem;
   color: #6a6f81;
 }
 
 .c-profile-card__header:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0%;
   top: 0;
@@ -142,6 +142,7 @@ body {
 
 .c-profile-card__title {
   order: 2;
+  margin-top: 1.44444rem;
 }
 
 .c-profile-card__name,
@@ -153,7 +154,6 @@ body {
 .c-profile-card__name {
   font-weight: 700;
   color: #2d3248;
-  margin-top: 1rem;
 }
 
 .c-profile-card__age {
@@ -165,6 +165,7 @@ body {
   font-size: 0.77778rem;
   order: 3;
   margin-top: 0.66667rem;
+  margin-bottom: 0.33333rem;
 }
 
 .c-profile-card__stats-list {
@@ -172,7 +173,7 @@ body {
   justify-content: space-evenly;
   position: relative;
   flex-wrap: wrap;
-  padding: 1.55556rem 1rem;
+  padding: 1.44444rem 1rem;
 }
 
 .c-profile-card__stats-list > * {
@@ -181,13 +182,13 @@ body {
 }
 
 .c-profile-card__stats-list > *::before {
-  content: '\200B';
+  content: "\200B";
   height: 0;
   display: block;
 }
 
 .c-profile-card__stats-list:before {
-  content: '';
+  content: "";
   height: 1px;
   background: #969696;
   width: 100%;
@@ -200,7 +201,7 @@ body {
 .c-profile-card__stats-list-item {
   color: #6a6f81;
   text-align: center;
-  margin: 0 0.33333rem;
+  margin: 0.33333rem;
 }
 
 .c-profile-card__stats-list-item:first-of-type {
