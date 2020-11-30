@@ -139,6 +139,7 @@ body {
   position: relative;
   width: 100%;
   max-width: rem(360);
+  box-shadow: 0 4rem 4rem -2rem darken($brand-primary, 8);
 }
 
 .c-profile-card__header {

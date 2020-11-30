@@ -106,6 +106,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 20rem;
+  box-shadow: 0 4rem 4rem -2rem #14808a;
 }
 
 .c-profile-card__header {
