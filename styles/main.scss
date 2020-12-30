@@ -15,11 +15,7 @@ $weight-bold: 700;
 
 $radius: 1rem;
 
-@function percent($size) {
-  $percentSize: $base-font-size / 16 * 100%;
-  @return #{$percentSize};
-}
-
+// take in pixels, spit out rem value (just for fun)
 @function rem($size) {
   $remSize: $size / #{$base-font-size};
   @return #{$remSize}rem;
@@ -34,7 +30,7 @@ $spacer-large: rem(26);
 	Base
 ----------------------------*/
 html {
-  font-size: percent(18);
+  font-size: 112.5%; // 18px
 }
 
 * {
@@ -58,7 +54,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  // background: $brand-primary;
   position: relative;
   font-family: $font-primary;
   overflow: hidden;
