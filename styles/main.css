@@ -46,13 +46,13 @@ body {
 .component-wrapper:before {
   top: 0;
   left: 0;
-  background: url("/images/bg-pattern-top.svg") no-repeat bottom right;
+  background: url("./images/bg-pattern-top.svg") no-repeat bottom right;
 }
 
 .component-wrapper:after {
   top: 100%;
   left: 100%;
-  background: url("/images/bg-pattern-bottom.svg") no-repeat top left;
+  background: url("./images/bg-pattern-bottom.svg") no-repeat top left;
 }
 
 .component-wrapper__main {
