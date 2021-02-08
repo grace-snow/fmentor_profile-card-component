@@ -1,34 +1,63 @@
 /*----------------------------
-	Vars
+  Functions
 ----------------------------*/
-
-$brand-primary: hsl(185, 75%, 39%);
-$brand-secondary: hsl(229, 23%, 23%);
-$brand-tertiary: hsl(227, 10%, 46%);
-$neutral-200: hsl(0, 0%, 59%);
-
-$base-font-size: 18;
-
-$font-primary: "Kumbh Sans", sans-serif;
-$weight-normal: 400;
-$weight-bold: 700;
-
-$radius: 1rem;
-
 // take in pixels, spit out rem value (just for fun)
 @function rem($size) {
   $remSize: $size / #{$base-font-size};
   @return #{$remSize}rem;
 }
 
+
+/*----------------------------
+	Vars
+----------------------------*/
+
+// Colors
+$brand-primary: hsl(185, 75%, 39%);
+$brand-secondary: hsl(229, 23%, 23%);
+$brand-tertiary: hsl(227, 10%, 46%);
+$neutral-200: hsl(0, 0%, 59%);
+
+// font styles
+$base-font-size: 18;
+$font-primary: 'Kumbh Sans', sans-serif;
+$weight-normal: 400;
+$weight-bold: 700;
+
+// radius
+$radius: 1rem;
+
+// Spacing
 $spacer: 1rem;
 $spacer-tiny: rem(6);
 $spacer-small: rem(12);
 $spacer-large: rem(26);
 
+
+/*----------------------------
+	Visually hidden helper
+----------------------------*/
+// Just a common handy helper class
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+
 /*----------------------------
 	Base
 ----------------------------*/
+// site wide styles, not related to component
+
 html {
   font-size: 112.5%; // 18px
 }
@@ -43,8 +72,8 @@ body {
   padding: 0;
   min-height: 100vh;
   height: 100%;
-  background: $brand-primary;
 }
+
 
 /*----------------------------
 	Create Background effect
@@ -57,11 +86,13 @@ body {
   position: relative;
   font-family: $font-primary;
   overflow: hidden;
+  background: $brand-primary;
+  z-index: -1; // force bg color to back
 
   &:before,
   &:after {
     position: absolute;
-    content: "";
+    content: '';
     width: 100vw;
     height: 100vh;
     background-size: auto;
@@ -72,16 +103,20 @@ body {
   &:before {
     top: 0;
     left: 0;
-    background: url("../images/bg-pattern-top.svg") no-repeat bottom right;
+    background: url('../images/bg-pattern-top.svg') no-repeat bottom right;
   }
 
   &:after {
     top: 100%;
     left: 100%;
-    background: url("../images/bg-pattern-bottom.svg") no-repeat top left;
+    background: url('../images/bg-pattern-bottom.svg') no-repeat top left;
   }
 }
 
+
+/*----------------------------
+	Component Example Page layout
+----------------------------*/
 .component-wrapper__main {
   flex-grow: 1;
   padding: 1rem;
@@ -95,11 +130,10 @@ body {
   text-align: center;
   padding: $spacer;
   align-self: center;
-  text-shadow: 0px 0px rem(6) #fff;
+  text-shadow: 0 0 rem(6) #FFF;
 
-  > * {
+  >  * {
     margin: 0;
-    z-index: 1;
   }
 }
 
@@ -107,29 +141,14 @@ body {
   color: hsl(228, 45%, 44%);
 }
 
-/*----------------------------
-	Visually hidden helper
-----------------------------*/
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
-}
+
 
 /*----------------------------
 	Profile Card component
 ----------------------------*/
 
 .c-profile-card {
-  background: #fff;
+  background: #FFF;
   border-radius: $radius;
   position: relative;
   width: 100%;
@@ -148,13 +167,13 @@ body {
 
   // patterned bg image
   &:before {
-    content: "";
+    content: '';
     position: absolute;
-    left: 0%;
+    left: 0;
     top: 0;
     width: 100%;
     height: rem(140);
-    background: url("/images/bg-pattern-card.svg") no-repeat center;
+    background: url('/images/bg-pattern-card.svg') no-repeat center;
     background-size: auto;
     background-size: cover;
     border-top-left-radius: $radius;
@@ -206,12 +225,14 @@ body {
   padding: $spacer-large $spacer;
 
   // Create an accessible list
-  > * {
+  // > See https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+  // > See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type#accessibility_concerns
+  >  * {
     list-style-type: none;
     position: relative;
 
     &::before {
-      content: "\200B";
+      content: '\200B'; // zero-width-non-joiner
       height: 0;
       display: block;
     }
@@ -219,7 +240,7 @@ body {
 
   // add top border
   &:before {
-    content: "";
+    content: '';
     height: 1px;
     background: $neutral-200;
     width: 100%;
