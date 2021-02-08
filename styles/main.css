@@ -1,6 +1,26 @@
 /*----------------------------
+  Functions
+----------------------------*/
+/*----------------------------
 	Vars
 ----------------------------*/
+/*----------------------------
+	Visually hidden helper
+----------------------------*/
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
 /*----------------------------
 	Base
 ----------------------------*/
@@ -18,7 +38,6 @@ body {
   padding: 0;
   min-height: 100vh;
   height: 100%;
-  background: #19a2ae;
 }
 
 /*----------------------------
@@ -31,11 +50,13 @@ body {
   position: relative;
   font-family: "Kumbh Sans", sans-serif;
   overflow: hidden;
+  background: #19a2ae;
+  z-index: -1;
 }
 
 .component-wrapper:before, .component-wrapper:after {
   position: absolute;
-  content: "";
+  content: '';
   width: 100vw;
   height: 100vh;
   background-size: auto;
@@ -55,6 +76,9 @@ body {
   background: url("../images/bg-pattern-bottom.svg") no-repeat top left;
 }
 
+/*----------------------------
+	Component Example Page layout
+----------------------------*/
 .component-wrapper__main {
   flex-grow: 1;
   padding: 1rem;
@@ -68,12 +92,11 @@ body {
   text-align: center;
   padding: 1rem;
   align-self: center;
-  text-shadow: 0px 0px 0.33333rem #fff;
+  text-shadow: 0 0 0.33333rem #FFF;
 }
 
 .component-wrapper__footer > * {
   margin: 0;
-  z-index: 1;
 }
 
 .attribution-link {
@@ -81,27 +104,10 @@ body {
 }
 
 /*----------------------------
-	Visually hidden helper
-----------------------------*/
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
-}
-
-/*----------------------------
 	Profile Card component
 ----------------------------*/
 .c-profile-card {
-  background: #fff;
+  background: #FFF;
   border-radius: 1rem;
   position: relative;
   width: 100%;
@@ -120,13 +126,13 @@ body {
 }
 
 .c-profile-card__header:before {
-  content: "";
+  content: '';
   position: absolute;
-  left: 0%;
+  left: 0;
   top: 0;
   width: 100%;
   height: 7.77778rem;
-  background: url("../images/bg-pattern-card.svg") no-repeat center;
+  background: url("/images/bg-pattern-card.svg") no-repeat center;
   background-size: auto;
   background-size: cover;
   border-top-left-radius: 1rem;
@@ -183,13 +189,13 @@ body {
 }
 
 .c-profile-card__stats-list > *::before {
-  content: "\200B";
+  content: '\200B';
   height: 0;
   display: block;
 }
 
 .c-profile-card__stats-list:before {
-  content: "";
+  content: '';
   height: 1px;
   background: #969696;
   width: 100%;
